@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Accordion from "./components/Accordion/Accordion";
 
-function App() {
+/*function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +22,51 @@ function App() {
       </header>
     </div>
   );
+}*/
+
+function hello() {
+    debugger;
+    alert('Hello Anton');
+}
+
+/*hello();*/
+
+function App() {
+    return (
+        <div>
+            <AppTitle/>
+            <Rating/>
+            <Accordion/>
+            <Rating/>
+        </div>
+    )
+}
+
+function AppTitle() {
+    console.log("AppTitle rendering")
+    return <>This is App component</>
+}
+
+function Rating() {
+    console.log('Rating render')
+    return (
+        <>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
+        </>
+    )
+}
+
+function Star() {
+    console.log("Star rendering")
+    return (
+        <div>
+            Star
+        </div>
+    )
 }
 
 export default App;
