@@ -32,19 +32,29 @@ function hello() {
 /*hello();*/
 
 function App() {
+    console.log("App rendering")
     return (
         <div>
-            <AppTitle/>
-            <Rating/>
-            <Accordion/>
-            <Rating/>
+            <PageTitle title={'This is App component'}/>
+            <PageTitle title={'My Friends'}/>
+            Article-1
+            <Rating value={3}/>
+            <Accordion title={'Accordion title-1'}/>
+            <Accordion title={'Accordion title-2'}/>
+            Article-2
+            <Rating value={0}/>
+            <Rating value={1}/>
+            <Rating value={2}/>
+            <Rating value={3}/>
+            <Rating value={4}/>
+            <Rating value={5}/>
         </div>
     )
 }
 
-function AppTitle() {
-    console.log("AppTitle rendering")
-    return <>This is App component</>
+function PageTitle(props: any) {
+    console.log("PageTitle rendering")
+    return <h1>{props.title}</h1>
 }
 
 export default App;
