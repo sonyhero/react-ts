@@ -1,29 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import Accordion from './components/Accordion/Accordion';
-import {Rating} from './components/Rating/Rating';
 import {OnOff} from './components/OnOf/OnOf';
+import {UncontrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
 
-/*function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}*/
+
 
 
 function App() {
@@ -32,6 +12,9 @@ function App() {
     return (
         <div>
             <OnOff/>
+
+            <UncontrolledAccordion titleValue={'Menu'}/>
+            <UncontrolledAccordion titleValue={'Users'}/>
             {/*<Accordion titleValue={'Menu'} collapsed={true}/>*/}
             {/*<Accordion titleValue={'Users'} collapsed={false}/>*/}
             {/*<Rating value={0}/>*/}
