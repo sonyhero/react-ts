@@ -7,13 +7,9 @@ type UncontrolledAccordionType = {
 export const UncontrolledAccordion = (props: UncontrolledAccordionType) => {
     
     const [collapsed, setCollapsed] = useState(true)
-    
-    const toggleSwitch = (collapsed: boolean) => {
-      setCollapsed(!collapsed)
-    }
 
     const toggleSwitchCallback = () => {
-        toggleSwitch(collapsed)
+        setCollapsed(!collapsed)
     }
 
 

@@ -8,7 +8,7 @@ function App() {
     console.log('App rendering')
 
     return (
-        <div>
+        <div className={'App'}>
             <OnOff/>
             <UncontrolledAccordion titleValue={'Menu'}/>
             <UncontrolledAccordion titleValue={'Users'}/>
