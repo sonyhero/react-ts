@@ -8,15 +8,14 @@ export const UncontrolledAccordion = (props: UncontrolledAccordionType) => {
     
     const [collapsed, setCollapsed] = useState(true)
 
-    const toggleSwitchCallback = () => {
+    const toggleSwitch = () => {
         setCollapsed(!collapsed)
     }
 
 
     return (
         <div>
-            <AccordionTitle title={props.titleValue}/>
-            <button onClick={toggleSwitchCallback}>toggle</button>
+            <AccordionTitle toggleSwitch={toggleSwitch} title={props.titleValue}/>
             {!collapsed && <AccordionBody/>}
         </div>
     )
@@ -24,12 +23,15 @@ export const UncontrolledAccordion = (props: UncontrolledAccordionType) => {
 
 type AccordionTitlePropsType = {
     title: string
+    toggleSwitch: ()=>void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log('AccordionTitle rendering')
+    const onClickHandler = () => {
+        props.toggleSwitch()
+    }
     return (
-        <h3>--{props.title}--</h3>
+        <h3 onClick={onClickHandler}>--{props.title}--</h3>
     )
 }
 
