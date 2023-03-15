@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {OnOff} from './components/OnOf/OnOf';
 import {UncontrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
@@ -7,7 +7,19 @@ import Accordion from './components/Accordion/Accordion';
 import {Rating} from './components/Rating/Rating';
 
 function App() {
-    console.log('App rendering')
+
+
+    const [collapsed, setCollapsed] = useState<boolean>(true)
+    const [star, setStar] = useState<number>(0)
+
+    const switchCollapsed = () => {
+        setCollapsed(!collapsed)
+    }
+
+    const addStar = (star: number) => {
+        setStar(star)
+    }
+
 
     return (
         <div className={'App'}>
@@ -15,8 +27,8 @@ function App() {
             <UncontrolledAccordion titleValue={'Menu'}/>
             <UncontrolledAccordion titleValue={'Users'}/>
             <UncontrolledRating/>
-            <Accordion titleValue={'book'} collapsed={true}/>
-            <Rating value={1}/>
+            <Accordion titleValue={'book'} collapsed={collapsed} switchCollapsed={switchCollapsed}/>
+            <Rating star={star} addStar={addStar}/>
         </div>
     )
 }
