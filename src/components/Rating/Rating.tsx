@@ -8,34 +8,34 @@ type RatingPropsType = {
 export function Rating(props: RatingPropsType) {
     console.log('Rating rendering')
 
-    const addStarHandler0 = () => {
+    const addStar0 = () => {
         props.addStar(0)
     }
 
-    const addStarHandler1 = () => {
+    const addStar1 = () => {
         props.addStar(1)
     }
-    const addStarHandler2 = () => {
+    const addStar2 = () => {
         props.addStar(2)
     }
-    const addStarHandler3 = () => {
+    const addStar3 = () => {
         props.addStar(3)
     }
-    const addStarHandler4 = () => {
+    const addStar4 = () => {
         props.addStar(4)
     }
-    const addStarHandler5 = () => {
+    const addStar5 = () => {
         props.addStar(5)
     }
 
     return (
         <div>
-            <button onClick={addStarHandler0}>0</button>
-            <Star selected={props.star > 0} addStar={addStarHandler1}/>
-            <Star selected={props.star > 1} addStar={addStarHandler2}/>
-            <Star selected={props.star > 2} addStar={addStarHandler3}/>
-            <Star selected={props.star > 3} addStar={addStarHandler4}/>
-            <Star selected={props.star > 4} addStar={addStarHandler5}/>
+            <button onClick={addStar0}>0</button>
+            <Star selected={props.star > 0} addStar={addStar1}/>
+            <Star selected={props.star > 1} addStar={addStar2}/>
+            <Star selected={props.star > 2} addStar={addStar3}/>
+            <Star selected={props.star > 3} addStar={addStar4}/>
+            <Star selected={props.star > 4} addStar={addStar5}/>
         </div>
     )
 }
