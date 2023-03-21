@@ -16,8 +16,8 @@ function App() {
         setCollapsed(!collapsed)
     }
 
-    const addStar = (star: number) => {
-        setStar(star)
+    const addStar = (value: number) => {
+        setStar(value)
     }
 
 

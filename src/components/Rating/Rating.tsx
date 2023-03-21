@@ -7,48 +7,29 @@ type RatingPropsType = {
 
 export function Rating(props: RatingPropsType) {
     console.log('Rating rendering')
-
-    const addStar0 = () => {
-        props.addStar(0)
-    }
-
-    const addStar1 = () => {
-        props.addStar(1)
-    }
-    const addStar2 = () => {
-        props.addStar(2)
-    }
-    const addStar3 = () => {
-        props.addStar(3)
-    }
-    const addStar4 = () => {
-        props.addStar(4)
-    }
-    const addStar5 = () => {
-        props.addStar(5)
-    }
-
     return (
         <div>
-            <button onClick={addStar0}>0</button>
-            <Star selected={props.star > 0} addStar={addStar1}/>
-            <Star selected={props.star > 1} addStar={addStar2}/>
-            <Star selected={props.star > 2} addStar={addStar3}/>
-            <Star selected={props.star > 3} addStar={addStar4}/>
-            <Star selected={props.star > 4} addStar={addStar5}/>
+            <div>
+                <Star selected={props.star > 0} addStar={props.addStar} value={1}/>
+                <Star selected={props.star > 1} addStar={props.addStar} value={2}/>
+                <Star selected={props.star > 2} addStar={props.addStar} value={3}/>
+                <Star selected={props.star > 3} addStar={props.addStar} value={4}/>
+                <Star selected={props.star > 4} addStar={props.addStar} value={5}/>
+            </div>
         </div>
     )
 }
 
 type StarPropsType = {
     selected: boolean
-    addStar: () => void
+    value: 1|2|3|4|5
+    addStar: (value: 1|2|3|4|5) => void
 }
 
 function Star(props: StarPropsType) {
 
     const onclickHandler = () => {
-        props.addStar()
+        props.addStar(props.value)
     }
-    return <span onClick={onclickHandler}> {(props.selected) ? <b>span</b> : 'star'}</span>
+    return <span onClick={onclickHandler}> {(props.selected) ? <b>star</b> : 'star'}</span>
 }
