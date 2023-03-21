@@ -50,9 +50,5 @@ function Star(props: StarPropsType) {
     const onclickHandler = () => {
         props.addStar()
     }
-    return (props.selected)
-        ?
-        <span onClick={onclickHandler}><b>star</b> </span>
-        :
-        <span onClick={onclickHandler}>star </span>
+    return <span onClick={onclickHandler}> {(props.selected) ? <b>span</b> : 'star'}</span>
 }
