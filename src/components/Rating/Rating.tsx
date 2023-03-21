@@ -1,20 +1,22 @@
 import React from 'react';
 
 type RatingPropsType = {
-    star: number
-    addStar: (star: number) => void
+    value: RatingValueType
+    setValue: (value: RatingValueType) => void
 }
+
+export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 
 export function Rating(props: RatingPropsType) {
     console.log('Rating rendering')
     return (
         <div>
             <div>
-                <Star selected={props.star > 0} addStar={props.addStar} value={1}/>
-                <Star selected={props.star > 1} addStar={props.addStar} value={2}/>
-                <Star selected={props.star > 2} addStar={props.addStar} value={3}/>
-                <Star selected={props.star > 3} addStar={props.addStar} value={4}/>
-                <Star selected={props.star > 4} addStar={props.addStar} value={5}/>
+                <Star selected={props.value > 0} addStar={props.setValue} value={1}/>
+                <Star selected={props.value > 1} addStar={props.setValue} value={2}/>
+                <Star selected={props.value > 2} addStar={props.setValue} value={3}/>
+                <Star selected={props.value > 3} addStar={props.setValue} value={4}/>
+                <Star selected={props.value > 4} addStar={props.setValue} value={5}/>
             </div>
         </div>
     )
@@ -22,8 +24,8 @@ export function Rating(props: RatingPropsType) {
 
 type StarPropsType = {
     selected: boolean
-    value: 1|2|3|4|5
-    addStar: (value: 1|2|3|4|5) => void
+    value: RatingValueType
+    addStar: (value: RatingValueType) => void
 }
 
 function Star(props: StarPropsType) {

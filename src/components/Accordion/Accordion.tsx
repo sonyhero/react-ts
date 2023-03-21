@@ -3,12 +3,12 @@ import React from 'react';
 type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
-    switchCollapsed: ()=>void
+    switchCollapsed: () => void
 }
 
 type AccordionTitlePropsType = {
     title: string
-    switchCollapsed:()=>void
+    switchCollapsed: () => void
 }
 
 function Accordion(props: AccordionPropsType) {
@@ -19,7 +19,7 @@ function Accordion(props: AccordionPropsType) {
 
     return (
         <div>
-            <AccordionTitle switchCollapsed={setCollapsedHandler  }  title={props.titleValue}/>
+            <AccordionTitle switchCollapsed={setCollapsedHandler} title={props.titleValue}/>
             {!props.collapsed && <AccordionBody/>}
         </div>
     )
@@ -29,7 +29,7 @@ function Accordion(props: AccordionPropsType) {
 function AccordionTitle(props: AccordionTitlePropsType) {
 
     const onClickHandler = () => {
-      props.switchCollapsed()
+        props.switchCollapsed()
     }
 
     return (

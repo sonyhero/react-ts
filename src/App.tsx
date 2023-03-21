@@ -4,22 +4,17 @@ import {OnOff} from './components/OnOf/OnOf';
 import {UncontrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
 import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
 import Accordion from './components/Accordion/Accordion';
-import {Rating} from './components/Rating/Rating';
+import {Rating, RatingValueType} from './components/Rating/Rating';
 
 function App() {
 
 
     const [collapsed, setCollapsed] = useState<boolean>(true)
-    const [star, setStar] = useState<number>(0)
+    const [value, setValue] = useState<RatingValueType>(0)
 
     const switchCollapsed = () => {
         setCollapsed(!collapsed)
     }
-
-    const addStar = (value: number) => {
-        setStar(value)
-    }
-
 
     return (
         <div className={'App'}>
@@ -28,7 +23,7 @@ function App() {
             <UncontrolledAccordion titleValue={'Users'}/>
             <UncontrolledRating/>
             <Accordion titleValue={'book'} collapsed={collapsed} switchCollapsed={switchCollapsed}/>
-            <Rating star={star} addStar={addStar}/>
+            <Rating value={value} setValue={setValue}/>
         </div>
     )
 }
