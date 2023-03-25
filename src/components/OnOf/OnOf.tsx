@@ -5,11 +5,7 @@ type OnOfPropsType = {
 
 export const OnOff = (props: OnOfPropsType) => {
 
-    const changeColorOn = () => {
-        props.setOn()
-
-    }
-    const changeColorOff = () => {
+    const changeColor = () => {
         props.setOn()
     }
 
@@ -43,10 +39,9 @@ export const OnOff = (props: OnOfPropsType) => {
 
     return (
         <div>
-            <div style={onStyle} onClick={changeColorOn}>ON</div>
-            <div style={offStyle} onClick={changeColorOff}>OFF</div>
+            <div style={onStyle} onClick={changeColor}>ON</div>
+            <div style={offStyle} onClick={changeColor}>OFF</div>
             <div style={indicatorStyle}></div>
         </div>
-
     )
 }
