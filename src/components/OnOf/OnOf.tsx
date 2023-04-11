@@ -1,11 +1,12 @@
 type OnOfPropsType = {
     on: boolean
-    setOn: () => void
+    setOn?: () => void
 }
 
 export const OnOff = (props: OnOfPropsType) => {
 
     const changeColor = () => {
+        if(props.setOn)
         props.setOn()
     }
 
