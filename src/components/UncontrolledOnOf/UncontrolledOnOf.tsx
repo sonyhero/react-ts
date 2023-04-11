@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export const UncontrolledOnOff = () => {
+export const UncontrolledOnOf = () => {
 
     const [on, setOn] = useState(false)
 

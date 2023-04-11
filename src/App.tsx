@@ -5,7 +5,7 @@ import {UncontrolledAccordion} from './components/UncontrolledAccordion/Uncontro
 import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
 import Accordion from './components/Accordion/Accordion';
 import {Rating, RatingValueType} from './components/Rating/Rating';
-import {UncontrolledOnOff} from './components/UncontrolledOnOf/UncontrolledOnOf';
+import {UncontrolledOnOf} from './components/UncontrolledOnOf/UncontrolledOnOf';
 
 function App() {
 
@@ -28,7 +28,7 @@ function App() {
             <UncontrolledRating/>
             <Accordion titleValue={'book'} collapsed={collapsed} switchCollapsed={switchCollapsed}/>
             <Rating value={value} setValue={setValue}/>
-            <UncontrolledOnOff/>
+            <UncontrolledOnOf/>
         </div>
     )
 }
