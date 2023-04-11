@@ -8,8 +8,4 @@ const meta: Meta<typeof UncontrolledOnOf> = {
 }
 export default meta;
 
-export const SwitchUncontrolledOnOf = () => {
-    return (
-        <UncontrolledOnOf/>
-    )
-}
+export const SwitchUncontrolledOnOf = () => <UncontrolledOnOf/>
