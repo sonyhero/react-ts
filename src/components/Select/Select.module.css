@@ -1,0 +1,15 @@
+.wrapper {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.title {
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+
+.list {
+    padding: 5px;
+}
