@@ -11,13 +11,13 @@ export default meta;
 
 
 const items = [
-    {title: 'Cola', value: 1},
-    {title: 'Steak', value: 2},
-    {title: 'Salad', value: 3}
+    {value: '1', title: 'Cola'},
+    { value: '2', title: 'Steak'},
+    { value: '3', title: 'Salad'}
 ]
 
 export const ItemSelect = () => {
-    const [value, setValue] = useState<any>('Select')
+    const [value, setValue] = useState<any>('2')
 
     return (
         <Select

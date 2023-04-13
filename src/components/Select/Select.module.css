@@ -1,15 +1,21 @@
-.wrapper {
-    width: 100px;
-    height: 100px;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
-.title {
-    padding: 5px;
+.select .main {
+    min-width: 50px;
+    min-height: 20px;
+    display: inline-block;
+    /*border: 1px solid black;*/
     border-bottom: 1px solid black;
+    width: 50px;
 }
 
-.list {
+.items {
+    position: absolute;
+    padding: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.list.selected {
+    background-color: blue;
+    color: wheat;
     padding: 5px;
 }
