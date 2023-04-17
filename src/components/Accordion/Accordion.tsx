@@ -18,7 +18,7 @@ type AccordionTitlePropsType = {
     switchCollapsed: () => void
 }
 
-function Accordion(props: AccordionPropsType) {
+const AccordionMemo = (props: AccordionPropsType) => {
 
     const setCollapsedHandler = () => {
         props.switchCollapsed()
@@ -33,7 +33,7 @@ function Accordion(props: AccordionPropsType) {
 }
 
 
-function AccordionTitle(props: AccordionTitlePropsType) {
+const AccordionTitleMemo = (props: AccordionTitlePropsType) => {
 
     const onClickHandler = () => {
         props.switchCollapsed()
@@ -49,9 +49,9 @@ type AccordionBodyPropsType = {
     onClick: (value: any) => void
 }
 
-function AccordionBody(props: AccordionBodyPropsType) {
+const AccordionBodyMemo = (props: AccordionBodyPropsType) => {
 
-    const mappedItems = props.items.map((el,i) => <li onClick={()=>props.onClick(el.value)} key={i}>{el.title}</li>)
+    const mappedItems = props.items.map((el, i) => <li onClick={() => props.onClick(el.value)} key={i}>{el.title}</li>)
 
     return (
         <ul>
@@ -60,5 +60,8 @@ function AccordionBody(props: AccordionBodyPropsType) {
     )
 }
 
-export default Accordion;
+export const Accordion = React.memo(AccordionMemo)
+const AccordionBody = React.memo(AccordionBodyMemo)
+const AccordionTitle = React.memo(AccordionTitleMemo)
+
 

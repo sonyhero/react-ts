@@ -10,8 +10,9 @@ type ItemType = {
     title: string
     value: any
 }
+export const Select = React.memo(SelectMemo)
 
-export function Select(props: SelectPropsType) {
+function SelectMemo(props: SelectPropsType) {
     const [collapsed, setCollapsed] = useState(true)
     const [hovValue, setHovValue] = useState(props.value)
 
@@ -35,7 +36,8 @@ export function Select(props: SelectPropsType) {
                         return
                     }
                 }
-            } if(!selectedItem) {
+            }
+            if (!selectedItem) {
                 props.onChange(props.items[0].value)
             }
         }

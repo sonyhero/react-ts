@@ -1,13 +1,15 @@
+import React from "react";
+
 type OnOfPropsType = {
     on: boolean
     setOn?: () => void
 }
 
-export const OnOff = (props: OnOfPropsType) => {
+const OnOffMemo = (props: OnOfPropsType) => {
 
     const changeColor = () => {
-        if(props.setOn)
-        props.setOn()
+        if (props.setOn)
+            props.setOn()
     }
 
     const onStyle = {
@@ -46,3 +48,5 @@ export const OnOff = (props: OnOfPropsType) => {
         </div>
     )
 }
+
+export const OnOff = React.memo(OnOffMemo)

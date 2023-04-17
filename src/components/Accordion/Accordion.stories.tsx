@@ -1,7 +1,7 @@
 import type {Meta} from '@storybook/react';
-import Accordion from './Accordion';
 import {action} from '@storybook/addon-actions';
 import {useState} from 'react';
+import {Accordion} from "./Accordion";
 
 
 const meta: Meta<typeof Accordion> = {
@@ -18,13 +18,14 @@ const items = [
     {title: 'Salad', value: 3}
 ]
 
-export const AccordionOn = () => <Accordion
-    titleValue={'Menu'}
-    collapsed={true}
-    switchCollapsed={callBack}
-    items={[]}
-    onClick={onClickCallBack}
-/>;
+export const AccordionOn = () =>
+    <Accordion
+        titleValue={'Menu'}
+        collapsed={true}
+        switchCollapsed={callBack}
+        items={[]}
+        onClick={onClickCallBack}
+    />;
 
 export const AccordionOff = () => <Accordion
     titleValue={'Menu'}

@@ -1,6 +1,6 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 
-export const UncontrolledOnOf = () => {
+const UncontrolledOnOfMemo = () => {
 
     const [on, setOn] = useState(false)
 
@@ -49,3 +49,4 @@ export const UncontrolledOnOf = () => {
 
     )
 }
+export const UncontrolledOnOf = React.memo(UncontrolledOnOfMemo)
