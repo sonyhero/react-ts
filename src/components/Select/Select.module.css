@@ -13,7 +13,9 @@
     border: 1px solid black;
     cursor: pointer;
 }
-
+.list{
+    background-color: white;
+}
 .list.selected {
     background-color: blue;
     color: wheat;
