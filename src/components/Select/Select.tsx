@@ -13,6 +13,7 @@ type ItemType = {
 export const Select = React.memo(SelectMemo)
 
 function SelectMemo(props: SelectPropsType) {
+    console.log('Render Select')
     const [collapsed, setCollapsed] = useState(true)
     const [hovValue, setHovValue] = useState(props.value)
 
