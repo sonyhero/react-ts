@@ -8,6 +8,7 @@ export default meta;
 export const DifficultCountExample = () => {
     const [a, setA] = useState(1)
     const [b, setB] = useState(1)
+    let resultA = 1
     let resultB = 1
 
     resultA = useMemo(() => {
