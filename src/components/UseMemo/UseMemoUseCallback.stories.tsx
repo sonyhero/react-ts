@@ -1,5 +1,5 @@
 import type {Meta} from '@storybook/react';
-import React, {useMemo, useState} from "react";
+import React, {useCallback, useMemo, useState} from "react";
 
 const meta: Meta = {
     title: 'UseMemo',
@@ -67,5 +67,36 @@ export const HelpForReactMemoExample = () => {
             <button onClick={addUser}>add user</button>
             {count}
             <Users users={newUsers}/>
+        </>)
+}
+
+type BookMemoType = {
+    addBook: () => void
+}
+const BooksMemo = (props: BookMemoType) => {
+    console.log('render BooksMemo')
+    return (
+        <div>
+            <button onClick={props.addBook}>add book</button>
+        </div>)
+}
+const Books = React.memo(BooksMemo)
+
+export const LikeUseCallBack = () => {
+    console.log('LikeUseCallBack')
+    const [count, setCount] = useState(0)
+    const [books, setBooks] = useState(['react', 'javaScript', 'html-css'])
+
+    const memoIzedAddBook = useMemo(() => {
+        return () => setBooks([...books, 'angular'+ new Date().getTime()])
+    }, [books])
+
+    const memoIzedAddBook2 = useCallback(() => setBooks([...books, 'angular'+ new Date().getTime()]), [books])
+
+    return (
+        <>
+            <button onClick={() => setCount(count + 1)}>+</button>
+            {count}
+            <Books addBook={memoIzedAddBook2} />
         </>)
 }
