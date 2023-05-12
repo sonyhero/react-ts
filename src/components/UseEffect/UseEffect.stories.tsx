@@ -74,10 +74,14 @@ export const SetIntervalExample = () => {
     const [fakeCount, setFakeCount] = useState<number>(generateNumber)
 
     useEffect(() => {
-        setInterval(() => {
+       const intervalId = setInterval(() => {
             console.log('set interval')
             setCount(state => state + 1)
         }, 1000)
+
+        return () => {
+            clearInterval(intervalId)
+        }
     },[])
 
     return (
@@ -87,18 +91,21 @@ export const SetIntervalExample = () => {
             </div>
         </div>)
 }
-export const ClockExample = () => {
-    const [date, setDate] = useState(new Date())
-
-    useEffect(() => {
-        setInterval(() => {
-            console.log('set interval')
-            setDate(state => new Date())
-        }, 1000)
-    },[])
-
-    return (
-        <div>
-            Hello, this is clock: {`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
-        </div>)
-}
+// export const ClockExample = () => {
+//     const [date, setDate] = useState(new Date())
+//
+//     useEffect(() => {
+//         const intervalId = setInterval(() => {
+//             console.log('set interval')
+//             setDate(state => new Date())
+//         }, 1000)
+//          return () => {
+//             clearInterval(intervalId)
+//         }
+//     },[])
+//
+//     return (
+//         <div>
+//             Hello, this is clock: {`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
+//         </div>)
+// }
