@@ -1,5 +1,5 @@
 import type {Meta} from '@storybook/react';
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState} from 'react';
 
 const meta: Meta = {
     title: 'UseEffectDemo',
@@ -46,10 +46,13 @@ export const SetTimeoutExample = () => {
     const [fakeCount, setFakeCount] = useState<number>(generateNumber)
 
     useEffect(() => {
-        setTimeout(() => {
+        const interval = setTimeout(() => {
             console.log('setTimeout')
             document.title = count.toString()
         }, 1500)
+        return () => {
+            clearInterval(interval)
+        }
     })
 
     return (
@@ -69,12 +72,13 @@ export const SetTimeoutExample = () => {
 
         </div>)
 }
+
 export const SetIntervalExample = () => {
     const [count, setCount] = useState<number>(generateNumber)
     const [fakeCount, setFakeCount] = useState<number>(generateNumber)
 
     useEffect(() => {
-       const intervalId = setInterval(() => {
+        const intervalId = setInterval(() => {
             console.log('set interval')
             setCount(state => state + 1)
         }, 1000)
@@ -82,7 +86,7 @@ export const SetIntervalExample = () => {
         return () => {
             clearInterval(intervalId)
         }
-    },[])
+    }, [])
 
     return (
         <div>
@@ -91,21 +95,78 @@ export const SetIntervalExample = () => {
             </div>
         </div>)
 }
-// export const ClockExample = () => {
-//     const [date, setDate] = useState(new Date())
-//
-//     useEffect(() => {
-//         const intervalId = setInterval(() => {
-//             console.log('set interval')
-//             setDate(state => new Date())
-//         }, 1000)
-//          return () => {
-//             clearInterval(intervalId)
-//         }
-//     },[])
-//
-//     return (
-//         <div>
-//             Hello, this is clock: {`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
-//         </div>)
-// }
+
+export const ResetEffectExample = () => {
+    const [count, setCount] = useState<number>(1)
+    console.log('component rendered with' + count)
+
+    useEffect(() => {
+        console.log('Effect occurred with' + count)
+
+        return () => {
+            console.log('reset effect' + count)
+        }
+    }, [count])
+
+    const counting = () => {
+        setCount(count + 1)
+    }
+
+    return (
+        <div>
+            <div>
+                Hello, this is count: {count}
+                <button onClick={counting}>+</button>
+
+            </div>
+        </div>)
+}
+
+export const KeysTrackerExample = () => {
+    const [text, setText] = useState<string>('')
+    console.log('component rendered with' + text)
+
+    useEffect(() => {
+        console.log('Effect occurred with' + text)
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText(text + e.key)
+        }
+        window.addEventListener('keypress', handler)
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+    }, [text])
+
+    return (
+        <div>
+            <div>
+                Hello, this is text: {text}
+
+            </div>
+        </div>)
+}
+
+export const SetTimeoutExample2 = () => {
+    const [text, setText] = useState<string>('')
+    console.log('component rendered with' + text)
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setText('3 seconds passed')
+        }, 3000)
+
+        return () => {
+            clearInterval(timeout)
+        }
+
+    }, [text])
+
+    return (
+        <div>
+            <div>
+                Hello, this is text: {text}
+
+            </div>
+        </div>)
+}
